@@ -16,21 +16,67 @@
     <dmn:extensionElements/>
     <dmn:variable id="_07F77FA7-2A20-4AD5-AAA4-D1FB9358AB77" name="produo_comprado" typeRef="string"/>
   </dmn:inputData>
-  <dmn:decision id="_AAFFA166-8A34-4BC8-9721-10CDFD266A06" name="Decision-1">
+  <dmn:decision id="_AAFFA166-8A34-4BC8-9721-10CDFD266A06" name="valor_cashback">
     <dmn:extensionElements/>
-    <dmn:variable id="_9599C1DB-FDC3-4EAD-BBBB-CA85D395E711" name="Decision-1" typeRef="string"/>
+    <dmn:variable id="_9599C1DB-FDC3-4EAD-BBBB-CA85D395E711" name="valor_cashback" typeRef="number"/>
     <dmn:informationRequirement id="_12B7B48A-1938-443E-AA5D-87B7FCEFEABE">
       <dmn:requiredInput href="#_6ED03A0C-A979-4643-99B3-28B9C8C0EA85"/>
     </dmn:informationRequirement>
-    <dmn:literalExpression id="_55C0666F-47C1-44E4-9297-C60C1ABCA929">
-      <dmn:text>if categoria_renda = "baixa renda" and estado_comprador = "RJ" and produo_comprado = "gás de cozinha" then valor_cashback = 0.0 else valor_cashback = 0.1</dmn:text>
-    </dmn:literalExpression>
+    <dmn:informationRequirement id="_385A4948-1287-49C8-A25D-CB57C5753F08">
+      <dmn:requiredInput href="#_B8328416-94E2-47FD-9EAC-44644E170CDC"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_CDD43447-9419-4876-B5AA-56E5B345CC8F">
+      <dmn:requiredInput href="#_8288971B-BAA0-4343-8103-D75A1EB9D450"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_55C0666F-47C1-44E4-9297-C60C1ABCA929" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_EEFB0D1E-F404-493C-97F2-D6F7E76F52DB">
+        <dmn:inputExpression id="_D8ADD7CC-88F5-468A-A16F-4BE92177AF49" typeRef="string">
+          <dmn:text>categoria_renda</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_7A6FFBBB-88D6-4C1C-AE97-E176FF606EDD">
+        <dmn:inputExpression id="_EDF62FB9-C520-408F-BAC6-A833BFF051BF" typeRef="string">
+          <dmn:text>estado_comprador</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_B3342024-7C43-464C-A916-8CA9DFF7ED07">
+        <dmn:inputExpression id="_C26D1FCF-AA67-4B7F-9A5E-F14D11A597A4" typeRef="string">
+          <dmn:text>produo_comprado</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_C3337EDC-CC87-48D3-AECF-8B2887427514"/>
+      <dmn:annotation name="annotation-1"/>
+      <dmn:rule id="_2A9E7E27-24DF-40E6-A157-CF37D6A4460C">
+        <dmn:inputEntry id="_E8D5E850-C800-4E56-88D4-13088936160F">
+          <dmn:text>"baixa renda"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_2E4AD699-4629-47B4-B639-46EA1E660E81">
+          <dmn:text>"RJ"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_62C6D25A-E7E8-44F6-A5A2-3B2562C5B505">
+          <dmn:text>"gás de cozinha"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_60701786-ACF8-4592-BB6B-55D731CCBA37">
+          <dmn:text>5</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
   </dmn:decision>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_CAEDA7DF-F8FE-4D68-921D-D5DA0ED8B88D" name="DRG">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_55C0666F-47C1-44E4-9297-C60C1ABCA929"/>
+          <kie:ComponentWidths dmnElementRef="_55C0666F-47C1-44E4-9297-C60C1ABCA929">
+            <kie:width>50</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="dmnshape-drg-_6ED03A0C-A979-4643-99B3-28B9C8C0EA85" dmnElementRef="_6ED03A0C-A979-4643-99B3-28B9C8C0EA85" isCollapsed="false">
@@ -73,11 +119,26 @@
         <di:waypoint x="329" y="499"/>
         <di:waypoint x="485" y="316"/>
       </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_385A4948-1287-49C8-A25D-CB57C5753F08-AUTO-TARGET" dmnElementRef="_385A4948-1287-49C8-A25D-CB57C5753F08">
+        <di:waypoint x="515" y="524"/>
+        <di:waypoint x="485" y="316"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_CDD43447-9419-4876-B5AA-56E5B345CC8F-AUTO-TARGET" dmnElementRef="_CDD43447-9419-4876-B5AA-56E5B345CC8F">
+        <di:waypoint x="674" y="529"/>
+        <di:waypoint x="485" y="316"/>
+      </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
     <dmndi:DMNDiagram id="_C32B4873-D752-470D-92D5-CC71255AD7C8" name="new-diagram">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_55C0666F-47C1-44E4-9297-C60C1ABCA929"/>
+          <kie:ComponentWidths dmnElementRef="_55C0666F-47C1-44E4-9297-C60C1ABCA929">
+            <kie:width>50</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="dmnshape-new-diagram-_AAFFA166-8A34-4BC8-9721-10CDFD266A06" dmnElementRef="_AAFFA166-8A34-4BC8-9721-10CDFD266A06" isCollapsed="false">
