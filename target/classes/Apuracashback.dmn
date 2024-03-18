@@ -57,7 +57,7 @@
           <dmn:text>"gás de cozinha"</dmn:text>
         </dmn:inputEntry>
         <dmn:outputEntry id="_60701786-ACF8-4592-BB6B-55D731CCBA37">
-          <dmn:text>20</dmn:text>
+          <dmn:text>30</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
@@ -143,9 +143,9 @@
         <di:waypoint x="674" y="529"/>
         <di:waypoint x="485" y="316"/>
       </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="dmnedge-drg-_1D3CCE24-A490-4332-8C30-DC835EE582F7-AUTO-SOURCE-AUTO-TARGET" dmnElementRef="_1D3CCE24-A490-4332-8C30-DC835EE582F7">
-        <di:waypoint x="535" y="291"/>
-        <di:waypoint x="615" y="291"/>
+      <dmndi:DMNEdge id="dmnedge-drg-_1D3CCE24-A490-4332-8C30-DC835EE582F7" dmnElementRef="_1D3CCE24-A490-4332-8C30-DC835EE582F7">
+        <di:waypoint x="485" y="291"/>
+        <di:waypoint x="665" y="291"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
     <dmndi:DMNDiagram id="_C32B4873-D752-470D-92D5-CC71255AD7C8" name="new-diagram">
